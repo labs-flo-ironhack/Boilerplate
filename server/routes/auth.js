@@ -52,7 +52,6 @@ router.post("/signup", async (req, res, next) => {
 
 		const user = createdUser.toObject();
 		delete user.password;
-
 		// ! Sending the user as json to the client
 		res.status(201).json({ user });
 	} catch (error) {

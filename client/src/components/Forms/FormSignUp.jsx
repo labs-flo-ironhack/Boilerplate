@@ -5,7 +5,7 @@ import axios from "axios";
 import apiHandler from "../../api/apiHandler";
 
 const FormSignUp = () => {
-	const [values, handleChange] = useForm({ email: "", password: "" });
+	const [values, handleChange] = useForm({ name: "", email: "", password: "" });
 	const [error, setError] = useState(null);
 	const navigate = useNavigate();
 
@@ -25,6 +25,14 @@ const FormSignUp = () => {
 			{error && <h3 className="error">{error.message}</h3>}
 			<form onSubmit={handleSubmit}>
 				<h2>Signup</h2>
+				<label htmlFor="name">Name</label>
+				<input
+					onChange={handleChange}
+					value={values.name}
+					type="text"
+					id="name"
+					name="name"
+				/>
 				<label htmlFor="email">Email</label>
 				<input
 					onChange={handleChange}
