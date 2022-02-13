@@ -5,7 +5,7 @@ import { Navigate, Outlet } from "react-router-dom";
 const PrivateRoute = () => {
 	const { isLoggedIn, isLoading } = useAuth();
 	if (isLoading) return <p>Loading...</p>;
-	if (!isLoggedIn) return <Navigate to="/login" />;
+	if (!isLoggedIn) return <Navigate to="/signin" />;
 	else return <Outlet />;
 };
 
