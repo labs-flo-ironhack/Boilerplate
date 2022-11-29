@@ -1,25 +1,24 @@
-import useForm from "../../hooks/useForm";
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
-import apiHandler from "../../api/apiHandler";
+import useForm from "../../hooks/useForm"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import apiHandler from "../../api/apiHandler"
 
 const FormSignUp = () => {
-	const [values, handleChange] = useForm({ name: "", email: "", password: "" });
-	const [error, setError] = useState(null);
-	const navigate = useNavigate();
+	const [values, handleChange] = useForm({ name: "", email: "", password: "" })
+	const [error, setError] = useState(null)
+	const navigate = useNavigate()
 
 	const handleSubmit = (e) => {
-		e.preventDefault();
+		e.preventDefault()
 		apiHandler
 			.signup(values)
 			.then(() => {
-				navigate("/signin");
+				navigate("/signin")
 			})
 			.catch((error) => {
-				setError(error.response.data);
-			});
-	};
+				setError(error.response.data)
+			})
+	}
 	return (
 		<>
 			{error && <h3 className="error">{error.message}</h3>}
@@ -52,7 +51,7 @@ const FormSignUp = () => {
 				<button>Submit</button>
 			</form>
 		</>
-	);
-};
+	)
+}
 
-export default FormSignUp;
+export default FormSignUp
